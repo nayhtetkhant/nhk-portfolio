@@ -158,4 +158,33 @@
 
 ---
 
+---
+
+## 9. Theme #3 — Cinematic Dark (from Awwwards reference) — 2026-10-10
+
+**Reference:** [Christoph Nagel Portfolio](https://www.awwwards.com/sites/christoph-nagel-portfolio) (Awwwards nominee, Aug 2026) — bold, cinematic one-page experience.
+
+**Design DNA adopted:**
+- Fullscreen **grayscale portrait** hero with cinematic gradient overlays + giant condensed **"Code."** headline
+- **Floating pill navbar**: circle "NK" logo left · centered pill links with active underline (scrollspy via IntersectionObserver) · Resume ghost pill + white Contact pill right
+- Bottom-left small underlined links (GitHub · LinkedIn · Resume), bottom-right **SCROLL** circle indicator
+- Numbered section labels (`01 ABOUT`) + huge condensed display headlines (small caps body labels)
+- Sections separated by `border-white/10` hairlines; monochrome palette (no accent color), near-black `#0a0a0a` bg
+
+**Typography:** **Anton** (condensed display via `next/font/google`, `font-display` utility) + Geist Sans body + Geist Mono labels.
+
+**Assets:**
+- Photo extracted from CV PDF (`pdfimages`) → `public/profile.jpg` (76KB, next/image optimized, CSS grayscale)
+- CV copied to `public/resume.pdf` (Resume buttons now work)
+
+**Content:** `lib/data.ts` rewritten from the **actual CV**:
+- Skills = CV's exact matrix (Frontend / Full-Stack JavaScript / Backend PHP / Database / DevOps & Tools)
+- Projects = CV bullets (`highlights` field) for ChatN, MVC, RTC PoC, User Management + Ricemill
+- Journey = CS50 (In Progress, edX) + High School (2024) + independent projects
+- Profile: location Hangdong Chiang Mai, phone +66 82 2736 118, OG image set
+
+**Status:** build ✅ lint ✅ live smoke ✅ sections visually verified via headless Chrome CDP.
+
+---
+
 *This file is the source of truth for portfolio decisions. Update it whenever we make a change.*

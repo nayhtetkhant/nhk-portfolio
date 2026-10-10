@@ -7,84 +7,131 @@ const links = [
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Journey" },
+  { href: "#journey", label: "Journey" },
   { href: "#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("");
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const ids = links.map((l) => l.href.slice(1));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(e.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px" },
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all ${
-        scrolled ? "border-b border-neutral-200 bg-white/80 backdrop-blur" : "bg-transparent"
-      }`}
-    >
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="#top" className="text-lg font-semibold tracking-tight text-neutral-900">
-          {profile.name.toLowerCase().replace(/\s+/g, "")}
-          <span className="text-indigo-600">.dev</span>
+    <header className="fixed inset-x-0 top-0 z-50">
+      <nav className="mx-auto flex h-20 max-w-[1400px] items-center justify-between px-5 sm:px-8">
+        {/* Circle logo */}
+        <a
+          href="#top"
+          aria-label="Back to top"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/25 text-[11px] font-semibold tracking-[0.15em] text-white backdrop-blur transition-colors hover:border-white hover:bg-white hover:text-neutral-950"
+        >
+          NK
         </a>
 
-        <ul className="hidden items-center gap-8 md:flex">
-          {links.map((l) => (
-            <li key={l.href}>
+        {/* Center pill nav */}
+        <div className="hidden items-center rounded-full border border-white/15 bg-white/5 px-2 py-1.5 backdrop-blur-md md:flex">
+          {links.map((l) => {
+            const isActive = active === l.href.slice(1);
+            return (
               <a
+                key={l.href}
                 href={l.href}
-                className="text-sm text-neutral-500 transition-colors hover:text-neutral-900"
+                className={`relative rounded-full px-4 py-2 text-[13px] transition-colors ${
+                  isActive ? "text-white" : "text-neutral-400 hover:text-white"
+                }`}
               >
                 {l.label}
+                {isActive && (
+                  <span
+                    className="absolute inset-x-4 -bottom-px h-px bg-white"
+                    aria-hidden
+                  />
+                )}
               </a>
-            </li>
-          ))}
-          <li>
-            <a
-              href={profile.resumeUrl}
-              target="_blank"
-              className="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-700"
-            >
-              Resume
-            </a>
-          </li>
-        </ul>
+            );
+          })}
+        </div>
 
-        <button
-          aria-label="Toggle menu"
-          onClick={() => setOpen(!open)}
-          className="text-neutral-700 md:hidden"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            {open ? (
-              <path d="M6 6l12 12M18 6L6 18" />
-            ) : (
-              <path d="M4 7h16M4 12h16M4 17h16" />
-            )}
-          </svg>
-        </button>
+        {/* Right cluster */}
+        <div className="flex items-center gap-3">
+          <a
+            href={profile.resumeUrl}
+            target="_blank"
+            className="hidden rounded-full border border-white/25 px-5 py-2.5 text-[13px] text-white backdrop-blur transition-colors hover:bg-white hover:text-neutral-950 sm:inline-block"
+          >
+            Resume
+          </a>
+          <a
+            href="#contact"
+            className="hidden rounded-full bg-white px-5 py-2.5 text-[13px] font-medium text-neutral-950 transition-colors hover:bg-neutral-300 sm:inline-block"
+          >
+            Contact
+          </a>
+          <button
+            aria-label="Toggle menu"
+            onClick={() => setOpen(!open)}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/25 text-white md:hidden"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              {open ? (
+                <path d="M6 6l12 12M18 6L6 18" />
+              ) : (
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </nav>
 
+      {/* Mobile menu */}
       {open && (
-        <ul className="border-t border-neutral-200 bg-white px-6 py-4 md:hidden">
-          {links.map((l) => (
-            <li key={l.href}>
+        <div className="border-y border-white/10 bg-neutral-950/95 backdrop-blur-md md:hidden">
+          <ul className="px-6 py-4">
+            {links.map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="block border-b border-white/5 py-3.5 text-sm text-neutral-300 transition-colors last:border-none hover:text-white"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+            <li className="flex gap-3 pt-4">
               <a
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="block py-3 text-neutral-600 hover:text-neutral-900"
+                href={profile.resumeUrl}
+                target="_blank"
+                className="rounded-full border border-white/25 px-5 py-2.5 text-[13px] text-white"
               >
-                {l.label}
+                Resume
+              </a>
+              <a
+                href="#contact"
+                onClick={() => setOpen(false)}
+                className="rounded-full bg-white px-5 py-2.5 text-[13px] font-medium text-neutral-950"
+              >
+                Contact
               </a>
             </li>
-          ))}
-        </ul>
+          </ul>
+        </div>
       )}
     </header>
   );

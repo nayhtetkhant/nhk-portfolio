@@ -1,68 +1,81 @@
+import Image from "next/image";
 import { profile } from "@/lib/data";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      {/* soft gradient wash */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div className="absolute -top-32 right-0 h-[420px] w-[420px] rounded-full bg-indigo-200/50 blur-[120px]" />
-        <div className="absolute top-40 -left-24 h-[320px] w-[320px] rounded-full bg-violet-200/40 blur-[120px]" />
-      </div>
+    <section id="top" className="relative min-h-[100svh] overflow-hidden">
+      {/* Fullscreen grayscale portrait */}
+      <Image
+        src={profile.photo}
+        alt={`${profile.name} — portrait`}
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-[50%_22%] grayscale contrast-[1.08]"
+      />
 
-      <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 py-32">
-        <p className="mb-4 font-mono text-sm text-indigo-600">
-          Hi, my name is
+      {/* Cinematic overlays */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/25 to-black/90"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,0.6) 100%)",
+        }}
+      />
+
+      {/* Center-bottom content */}
+      <div className="relative flex min-h-[100svh] flex-col items-center justify-end px-6 pb-24 text-center sm:pb-28">
+        <p className="text-xs font-bold uppercase tracking-[0.4em] text-white sm:text-sm">
+          {profile.name}
         </p>
-        <h1 className="text-4xl font-bold tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl">
-          {profile.name}.
+        <p className="mt-4 max-w-md text-sm leading-relaxed text-neutral-300 sm:text-base">
+          Full Stack Developer based in Chiang Mai, Thailand
+        </p>
+        <h1 className="mt-6 font-display text-[24vw] leading-[0.82] tracking-tight text-white sm:text-[18vw] lg:text-[15rem]">
+          Code.
         </h1>
-        <h2 className="mt-2 text-3xl font-bold tracking-tight text-neutral-400 sm:text-5xl lg:text-6xl">
-          I build things for the web.
-        </h2>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-500">
-          {profile.tagline}
-        </p>
-
-        <p className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1.5 text-sm text-emerald-700">
-          <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
+        <p className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs text-neutral-300 backdrop-blur">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
           {profile.availability}
         </p>
-
-        <div className="mt-10 flex flex-wrap gap-4">
-          <a
-            href="#projects"
-            className="rounded-lg bg-indigo-600 px-6 py-3 font-medium text-white shadow-sm transition-colors hover:bg-indigo-700"
-          >
-            View My Work
-          </a>
-          <a
-            href="#contact"
-            className="rounded-lg border border-neutral-300 px-6 py-3 font-medium text-neutral-700 transition-colors hover:border-neutral-900 hover:text-neutral-900"
-          >
-            Get In Touch
-          </a>
-        </div>
-
-        <div className="mt-12 flex gap-5 text-sm">
-          {[
-            { href: profile.github, label: "GitHub" },
-            { href: profile.linkedin, label: "LinkedIn" },
-            { href: profile.twitter, label: "Twitter" },
-          ]
-            .filter((s) => s.href)
-            .map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-400 transition-colors hover:text-indigo-600"
-              >
-                {s.label}
-              </a>
-            ))}
-        </div>
       </div>
+
+      {/* Bottom-left links */}
+      <div className="absolute bottom-7 left-7 hidden gap-6 text-xs text-neutral-300 sm:flex">
+        {[
+          { href: profile.github, label: "GitHub" },
+          { href: profile.linkedin, label: "LinkedIn" },
+          { href: profile.resumeUrl, label: "Resume" },
+        ].map((s) => (
+          <a
+            key={s.label}
+            href={s.href}
+            target={s.href.startsWith("/") ? undefined : "_blank"}
+            rel="noopener noreferrer"
+            className="underline decoration-white/30 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
+          >
+            {s.label}
+          </a>
+        ))}
+      </div>
+
+      {/* Bottom-right scroll indicator */}
+      <a
+        href="#about"
+        className="group absolute bottom-6 right-6 flex items-center gap-4 text-[11px] uppercase tracking-[0.25em] text-neutral-300 transition-colors hover:text-white"
+      >
+        Scroll
+        <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/25 transition-colors group-hover:border-white group-hover:bg-white group-hover:text-neutral-950">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 5v14M6 13l6 6 6-6" />
+          </svg>
+        </span>
+      </a>
     </section>
   );
 }
