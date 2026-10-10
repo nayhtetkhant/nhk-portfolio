@@ -16,19 +16,19 @@ export function Contact() {
         </p>
         <a
           href={`mailto:${profile.email}`}
-          className="mt-8 inline-block rounded-full border border-indigo-500 px-8 py-3 font-medium text-indigo-400 transition-colors hover:bg-indigo-500/10"
+          className="mt-8 inline-block rounded-full border border-green-500 px-8 py-3 font-medium text-green-400 transition-colors hover:bg-green-500/10"
         >
           {profile.email}
         </a>
         <div className="mt-8 flex justify-center gap-6 text-sm text-zinc-500">
-          <a href={profile.github} target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
+          <a href={profile.github} target="_blank" rel="noopener noreferrer" className="hover:text-green-400">
             GitHub
           </a>
-          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
+          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-green-400">
             LinkedIn
           </a>
           {profile.twitter && (
-            <a href={profile.twitter} target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
+            <a href={profile.twitter} target="_blank" rel="noopener noreferrer" className="hover:text-green-400">
               Twitter
             </a>
           )}

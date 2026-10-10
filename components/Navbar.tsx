@@ -31,7 +31,7 @@ export default function Navbar() {
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <a href="#top" className="font-mono text-lg font-semibold text-white">
           {profile.name.toLowerCase().replace(/\s+/g, "")}
-          <span className="text-indigo-500">.dev</span>
+          <span className="text-green-500">.dev</span>
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
@@ -49,7 +49,7 @@ export default function Navbar() {
             <a
               href={profile.resumeUrl}
               target="_blank"
-              className="rounded-full bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
+              className="rounded-full bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-500"
             >
               Resume
             </a>

@@ -72,8 +72,8 @@
 | **Language** | 🇬🇧 English main now → 🇹🇭 Thai version **later** (language toggle) |
 
 ### Action items — design
-- [ ] Restyle from indigo theme → terminal/hacker look (monospace, green/amber on black, CRT glow, scanlines?)
-- [ ] Build typing-animation terminal hero (`whoami`, `cat skills.json`, etc.)
+- [x] ~~Restyle from indigo theme → terminal/hacker look~~ ✅ DONE (phosphor green on black, mono font, scanlines, glow, blinking caret)
+- [x] ~~Build typing-animation terminal hero~~ ✅ DONE (`TerminalHero.tsx`: `whoami`, `cat stack.txt`, `./open_to_work.sh`, loops, respects reduced motion)
 - [ ] Keep future i18n structure in mind (EN now, TH later)
 
 ---
@@ -148,7 +148,9 @@
 - ✅ Sections built: Navbar, Hero, About, Skills, Projects, Experience, Contact, Footer
 - ✅ Build passes (`npm run build`), lint clean, static prerender OK
 - ✅ All editable content centralized in `lib/data.ts`
-- ⏳ **To do:** terminal restyle, terminal hero animation, real content, deployment, resume, links
+- ✅ Real content filled in (name, links, 5 real projects, journey)
+- ✅ Terminal/hacker restyle + interactive typing hero (`TerminalHero.tsx`)
+- ⏳ **To do:** real content polish, deployment, resume upload, Thai version
 
 ---
 

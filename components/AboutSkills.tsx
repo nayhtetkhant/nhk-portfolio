@@ -3,10 +3,11 @@ import { profile, skills } from "@/lib/data";
 export function SectionHeading({ number, title }: { number: string; title: string }) {
   return (
     <div className="mb-12 flex items-center gap-4">
-      <h2 className="text-2xl font-bold text-white sm:text-3xl">
-        <span className="font-mono text-indigo-500">{number}.</span> {title}
+      <h2 className="font-mono text-xl font-bold uppercase tracking-widest text-green-400 text-glow sm:text-2xl">
+        <span className="text-green-600">{number}.</span> {title}
+        <span className="caret ml-1 h-4 w-2" />
       </h2>
-      <div className="h-px flex-1 bg-white/10" />
+      <div className="h-px flex-1 bg-green-500/20" />
     </div>
   );
 }
@@ -29,14 +30,14 @@ export function About() {
               .slice(0, 12)
               .map((t) => (
                 <li key={t} className="flex items-center gap-2">
-                  <span className="text-indigo-500">▸</span> {t}
+                  <span className="text-green-500">▸</span> {t}
                 </li>
               ))}
           </ul>
         </div>
         <div className="lg:col-span-2">
           <div className="relative mx-auto max-w-md">
-            <div className="absolute -inset-1 rounded-lg bg-indigo-600/30 blur" />
+            <div className="absolute -inset-1 rounded-lg bg-green-600/30 blur" />
             <div className="relative overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
               <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
                 <span className="h-3 w-3 rounded-full bg-red-500" />
@@ -68,9 +69,9 @@ export function Skills() {
         {skills.map((group) => (
           <div
             key={group.category}
-            className="rounded-xl border border-white/10 bg-zinc-900/50 p-6 transition-colors hover:border-indigo-500/50"
+            className="rounded-xl border border-white/10 bg-zinc-900/50 p-6 transition-colors hover:border-green-500/50"
           >
-            <h3 className="mb-4 font-mono text-indigo-400">{group.category}</h3>
+            <h3 className="mb-4 font-mono text-green-400">{group.category}</h3>
             <ul className="space-y-2 text-sm text-zinc-400">
               {group.items.map((item) => (
                 <li key={item}>{item}</li>

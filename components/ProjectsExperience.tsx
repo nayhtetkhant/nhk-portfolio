@@ -9,9 +9,9 @@ export function Projects() {
         {projects.map((p) => (
           <article
             key={p.title}
-            className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-zinc-900/50 transition-all hover:-translate-y-1 hover:border-indigo-500/50"
+            className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-zinc-900/50 transition-all hover:-translate-y-1 hover:border-green-500/50"
           >
-            <div className="flex h-40 items-center justify-center bg-gradient-to-br from-indigo-600/20 to-purple-600/20 font-mono text-sm text-indigo-300">
+            <div className="flex h-40 items-center justify-center bg-gradient-to-br from-green-600/20 to-teal-600/20 font-mono text-sm text-green-300">
               {p.title}
             </div>
             <div className="flex flex-1 flex-col p-6">
@@ -23,7 +23,7 @@ export function Projects() {
                 {p.tech.map((t) => (
                   <li
                     key={t}
-                    className="rounded-full bg-indigo-600/10 px-2.5 py-1 font-mono text-xs text-indigo-400"
+                    className="rounded-full bg-green-600/10 px-2.5 py-1 font-mono text-xs text-green-400"
                   >
                     {t}
                   </li>
@@ -36,7 +36,7 @@ export function Projects() {
                     href={r.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-300 transition-colors hover:text-indigo-400"
+                    className="text-zinc-300 transition-colors hover:text-green-400"
                   >
                     {r.label} ↗
                   </a>
@@ -46,7 +46,7 @@ export function Projects() {
                     href={p.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-300 transition-colors hover:text-indigo-400"
+                    className="text-zinc-300 transition-colors hover:text-green-400"
                   >
                     Live Demo ↗
                   </a>
@@ -71,7 +71,7 @@ export function Experience() {
             className="grid gap-4 border-l-2 border-white/10 pl-6 md:grid-cols-4"
           >
             <div>
-              <p className="font-mono text-sm text-indigo-400">{job.period}</p>
+              <p className="font-mono text-sm text-green-400">{job.period}</p>
               <p className="mt-1 text-sm text-zinc-500">{job.company}</p>
             </div>
             <div className="md:col-span-3">
@@ -79,7 +79,7 @@ export function Experience() {
               <ul className="mt-3 space-y-2 text-sm leading-relaxed text-zinc-400">
                 {job.points.map((pt, i) => (
                   <li key={i} className="flex gap-3">
-                    <span className="text-indigo-500">▹</span>
+                    <span className="text-green-500">▹</span>
                     {pt}
                   </li>
                 ))}
