@@ -9,21 +9,21 @@ export function Projects() {
         {projects.map((p) => (
           <article
             key={p.title}
-            className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-zinc-900/50 transition-all hover:-translate-y-1 hover:border-green-500/50"
+            className="group flex flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white transition-all hover:-translate-y-1 hover:shadow-lg"
           >
-            <div className="flex h-40 items-center justify-center bg-gradient-to-br from-green-600/20 to-teal-600/20 font-mono text-sm text-green-300">
+            <div className="flex h-40 items-center justify-center bg-gradient-to-br from-indigo-50 to-violet-100 font-mono text-sm text-indigo-400">
               {p.title}
             </div>
             <div className="flex flex-1 flex-col p-6">
-              <h3 className="text-lg font-semibold text-white">{p.title}</h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-400">
+              <h3 className="text-lg font-semibold text-neutral-900">{p.title}</h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-neutral-600">
                 {p.description}
               </p>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {p.tech.map((t) => (
                   <li
                     key={t}
-                    className="rounded-full bg-green-600/10 px-2.5 py-1 font-mono text-xs text-green-400"
+                    className="rounded-md bg-indigo-50 px-2.5 py-1 font-mono text-xs text-indigo-700"
                   >
                     {t}
                   </li>
@@ -36,7 +36,7 @@ export function Projects() {
                     href={r.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-300 transition-colors hover:text-green-400"
+                    className="font-medium text-neutral-700 transition-colors hover:text-indigo-600"
                   >
                     {r.label} ↗
                   </a>
@@ -46,7 +46,7 @@ export function Projects() {
                     href={p.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-300 transition-colors hover:text-green-400"
+                    className="font-medium text-neutral-700 transition-colors hover:text-indigo-600"
                   >
                     Live Demo ↗
                   </a>
@@ -68,18 +68,18 @@ export function Experience() {
         {experience.map((job) => (
           <div
             key={job.role + job.company}
-            className="grid gap-4 border-l-2 border-white/10 pl-6 md:grid-cols-4"
+            className="grid gap-4 border-l-2 border-neutral-200 pl-6 md:grid-cols-4"
           >
             <div>
-              <p className="font-mono text-sm text-green-400">{job.period}</p>
-              <p className="mt-1 text-sm text-zinc-500">{job.company}</p>
+              <p className="font-mono text-sm text-indigo-600">{job.period}</p>
+              <p className="mt-1 text-sm text-neutral-400">{job.company}</p>
             </div>
             <div className="md:col-span-3">
-              <h3 className="text-lg font-semibold text-white">{job.role}</h3>
-              <ul className="mt-3 space-y-2 text-sm leading-relaxed text-zinc-400">
+              <h3 className="text-lg font-semibold text-neutral-900">{job.role}</h3>
+              <ul className="mt-3 space-y-2 text-sm leading-relaxed text-neutral-600">
                 {job.points.map((pt, i) => (
                   <li key={i} className="flex gap-3">
-                    <span className="text-green-500">▹</span>
+                    <span className="text-indigo-500">▹</span>
                     {pt}
                   </li>
                 ))}

@@ -25,13 +25,13 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all ${
-        scrolled ? "border-b border-white/10 bg-[#0a0a0f]/80 backdrop-blur" : ""
+        scrolled ? "border-b border-neutral-200 bg-white/80 backdrop-blur" : "bg-transparent"
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="#top" className="font-mono text-lg font-semibold text-white">
+        <a href="#top" className="text-lg font-semibold tracking-tight text-neutral-900">
           {profile.name.toLowerCase().replace(/\s+/g, "")}
-          <span className="text-green-500">.dev</span>
+          <span className="text-indigo-600">.dev</span>
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
@@ -39,7 +39,7 @@ export default function Navbar() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-sm text-zinc-400 transition-colors hover:text-white"
+                className="text-sm text-neutral-500 transition-colors hover:text-neutral-900"
               >
                 {l.label}
               </a>
@@ -49,7 +49,7 @@ export default function Navbar() {
             <a
               href={profile.resumeUrl}
               target="_blank"
-              className="rounded-full bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-500"
+              className="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-700"
             >
               Resume
             </a>
@@ -59,7 +59,7 @@ export default function Navbar() {
         <button
           aria-label="Toggle menu"
           onClick={() => setOpen(!open)}
-          className="text-zinc-300 md:hidden"
+          className="text-neutral-700 md:hidden"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             {open ? (
@@ -72,13 +72,13 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <ul className="border-t border-white/10 bg-[#0a0a0f]/95 px-6 py-4 md:hidden">
+        <ul className="border-t border-neutral-200 bg-white px-6 py-4 md:hidden">
           {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block py-3 text-zinc-300 hover:text-white"
+                className="block py-3 text-neutral-600 hover:text-neutral-900"
               >
                 {l.label}
               </a>

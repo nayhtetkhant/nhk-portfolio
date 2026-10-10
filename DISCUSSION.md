@@ -66,14 +66,18 @@
 
 | Question | Answer |
 |---|---|
-| **Design personality** | 🖥️ **Dark, terminal/hacker aesthetic (code vibes)** |
-| **Hero** | **Live terminal-style interactive typing animation** |
-| **Extras chosen** | Terminal interactive hero only (no blog/testimonials/GitHub stats for now) |
+| **Design personality** | *(2026-10-10 update)* 🎨 **Light Editorial — clean & modern (Stripe/Notion style)**. Terminal/hacker theme was built then **rejected by user**. |
+| **Theme spec** | White bg · neutral-900 text · Geist Sans · **indigo-600 accent** · 1px neutral borders · soft shadows on hover · soft indigo/violet gradient wash in hero |
+| **Hero** | Big editorial headline (name + gray subline) + availability badge + CTAs — *typing terminal removed* |
 | **Language** | 🇬🇧 English main now → 🇹🇭 Thai version **later** (language toggle) |
 
+> Earlier decision was "dark terminal/hacker aesthetic + typing hero" — implemented in commit `5c52bd7`,
+> then replaced because the user didn't like it. Style research: Linear/Vercel (dark min), Stripe/Notion
+> (light editorial), bento grids, leerob.com (mono+pop). User picked **Light Editorial**.
+
 ### Action items — design
-- [x] ~~Restyle from indigo theme → terminal/hacker look~~ ✅ DONE (phosphor green on black, mono font, scanlines, glow, blinking caret)
-- [x] ~~Build typing-animation terminal hero~~ ✅ DONE (`TerminalHero.tsx`: `whoami`, `cat stack.txt`, `./open_to_work.sh`, loops, respects reduced motion)
+- [x] ~~Restyle to terminal/hacker look~~ ❌ Built, then **replaced** per user feedback
+- [x] ~~Rebuild as Light Editorial (Stripe/Notion)~~ ✅ DONE (light theme, indigo accent, clean cards, no CRT effects)
 - [ ] Keep future i18n structure in mind (EN now, TH later)
 
 ---
@@ -149,7 +153,7 @@
 - ✅ Build passes (`npm run build`), lint clean, static prerender OK
 - ✅ All editable content centralized in `lib/data.ts`
 - ✅ Real content filled in (name, links, 5 real projects, journey)
-- ✅ Terminal/hacker restyle + interactive typing hero (`TerminalHero.tsx`)
+- ✅ Light Editorial theme (Stripe/Notion style) — replaces rejected terminal theme
 - ⏳ **To do:** real content polish, deployment, resume upload, Thai version
 
 ---
