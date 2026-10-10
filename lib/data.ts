@@ -135,7 +135,7 @@ export const journey = [
   {
     period: "2024",
     role: "High School Graduated",
-    place: "Thailand",
+    place: "Myanmar",
     points: [
       "Continued into software engineering through project-based self-study and open-source exploration.",
     ],
