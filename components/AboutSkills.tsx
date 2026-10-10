@@ -54,7 +54,7 @@ export function About() {
             alt={`${profile.name} portrait`}
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover object-[50%_25%] grayscale contrast-[1.05]"
+            className="object-cover object-[50%_35%] grayscale contrast-[1.05]"
           />
           <div
             aria-hidden

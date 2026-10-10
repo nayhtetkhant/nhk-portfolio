@@ -11,7 +11,7 @@ export default function Hero() {
         fill
         priority
         sizes="100vw"
-        className="object-cover object-[50%_22%] grayscale contrast-[1.08]"
+        className="object-cover object-[50%_30%] grayscale contrast-[1.08]"
       />
 
       {/* Cinematic overlays */}
