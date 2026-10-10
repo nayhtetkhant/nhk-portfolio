@@ -28,7 +28,7 @@ export function About() {
     <section id="about" className="scroll-mt-24 border-t border-white/10">
       <div className="mx-auto grid max-w-[1400px] gap-14 px-6 py-24 lg:grid-cols-2 lg:gap-16 lg:py-32">
         <div>
-          <SectionHeading number="01" label="About" title="The person behind the code" />
+          <SectionHeading number="01" label="About" title="The person behind the developer" />
           <div className="max-w-xl space-y-5 text-[15px] leading-relaxed text-neutral-400">
             {profile.about.map((p, i) => (
               <p key={i}>{p}</p>

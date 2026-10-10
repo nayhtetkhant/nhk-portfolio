@@ -37,9 +37,9 @@ export default function Hero() {
           Full Stack Developer based in Chiang Mai, Thailand
         </p>
         <h1 className="mt-6 font-display text-[24vw] leading-[0.82] tracking-tight text-white sm:text-[18vw] lg:text-[15rem]">
-          Code.
+          Developer.
         </h1>
-        <p className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs text-neutral-300 backdrop-blur">
+        <p className="mt-10 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs text-neutral-300 backdrop-blur">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
           {profile.availability}
         </p>
