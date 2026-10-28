@@ -28,7 +28,7 @@ export const profile = {
 };
 
 export const skills = [
-  { category: "Frontend", items: ["HTML", "CSS", "Tailwind CSS", "Shadcn"] },
+  { category: "Frontend", items: ["HTML", "CSS", "Tailwind CSS"] },
   {
     category: "Full-Stack JavaScript",
     items: ["TypeScript", "Node.js", "Alpine.js", "React", "Next.js", "TanStack", "Zustand"],
@@ -39,6 +39,24 @@ export const skills = [
 ];
 
 export const projects = [
+  {
+    title: "E-Book Digital Storefront with Stripe Payments",
+    description:
+      "A full stack digital product store with separate customer and admin dashboards for products, orders, and payments, backed by a versioned Laravel REST API with Sanctum token auth.",
+    highlights: [
+      "Integrated Stripe Checkout via Laravel Cashier and fulfilled orders from webhooks verifying payment status and stored session ID before marking payments paid and granting product access in one database transaction.",
+      "Calculated order totals from database prices rather than client input to prevent price tampering.",
+      "Delivered files through AWS S3 pre-signed URLs letting admins upload directly from the browser and customers download purchased files via links that expire after minutes.",
+      "Used Next.js App Router server actions with HTTP-only cookies for token storage and kept business logic in a service layer with form request validation and API resources.",
+    ],
+    tech: ["Laravel", "Next.js", "Sanctum", "Stripe Cashier", "AWS S3", "MySQL", "React Hook Form"],
+    github: "https://github.com/nayhtetkhant/e-book-api",
+    repos: [
+      { label: "e-book-api", url: "https://github.com/nayhtetkhant/e-book-api" },
+      { label: "e-book-web", url: "https://github.com/nayhtetkhant/e-book-web" },
+    ],
+    demo: "",
+  },
   {
     title: "ChatN — Group Chat & Video Conferencing",
     description:
