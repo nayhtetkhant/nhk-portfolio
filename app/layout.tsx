@@ -79,10 +79,11 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/profile.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Nay Htet Khant — Full Stack Developer",
+        type: "image/png",
+        alt: "Nay Htet Khant — Full Stack Developer | View Portfolio",
       },
     ],
   },
@@ -91,7 +92,7 @@ export const metadata: Metadata = {
     title: "Nay Htet Khant — Full Stack Developer",
     description:
       "Backend-leaning full stack developer building real-time systems, APIs, and databases.",
-    images: ["/profile.jpg"],
+    images: ["/og-image.png"],
     creator: "@nayhtetkhant",
   },
   icons: {

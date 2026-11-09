@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate:og": "python3 scripts/generate-og-image.py"
   },
   "dependencies": {
     "next": "16.4.0",
