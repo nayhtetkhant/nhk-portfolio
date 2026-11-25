@@ -69,6 +69,16 @@ export function Projects() {
                       Live Demo ↗
                     </a>
                   )}
+                  {p.adminDemo && (
+                    <a
+                      href={p.adminDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-300 underline decoration-white/20 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
+                    >
+                      Admin Panel ↗
+                    </a>
+                  )}
                 </div>
               </div>
             </article>

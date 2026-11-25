@@ -1,6 +1,6 @@
 // ============================================================
 // EDIT THIS FILE to customize your portfolio with real content
-// Source of truth: Nay Htet Khant CV (extracted 2026-10)
+// Source of truth: Nay Htet Khant CV (extracted 2026-11)
 // ============================================================
 
 export const profile = {
@@ -22,40 +22,60 @@ export const profile = {
     "Software Engineer with full-stack developer experience and a keen interest in DevOps and backend technologies. Knowledgeable on MVC design pattern based on current development practices. Continuously learning about AWS and CI/CD pipeline.",
   about: [
     "I'm a backend-leaning full stack developer who enjoys building the parts most people never see: APIs, queues, WebSocket layers, and database design — plus enough frontend to ship the whole product.",
-    "My recent work includes ChatN, a real-time chat and video conferencing platform (Next.js frontend, Laravel API, WebRTC via LiveKit, Dockerized with Caddy), and ricemill-api, a Laravel application serving real business workflows.",
+    "My recent work includes an E-Book Digital Storefront with Stripe payments and AWS S3 delivery, ChatN (a real-time chat and video conferencing platform with Next.js, Laravel, LiveKit, and Docker/Caddy), and ricemill-api, a Laravel application serving real business workflows.",
     "I learn by building: proof-of-concepts like a WebRTC playground and a PHP MVC framework written from scratch keep my fundamentals sharp.",
   ],
 };
 
 export const skills = [
-  { category: "Frontend", items: ["HTML", "CSS", "Tailwind CSS"] },
+  { category: "Frontend", items: ["HTML", "CSS", "Tailwind CSS", "Shadcn"] },
   {
     category: "Full-Stack JavaScript",
     items: ["TypeScript", "Node.js", "Alpine.js", "React", "Next.js", "TanStack", "Zustand"],
   },
   { category: "Backend (PHP)", items: ["PHP", "Laravel", "Reverb"] },
   { category: "Database", items: ["MySQL", "PostgreSQL", "Redis"] },
-  { category: "DevOps & Tools", items: ["Docker", "Caddy", "Nginx", "Git", "Linux"] },
+  {
+    category: "DevOps & Tools",
+    items: ["Docker", "Caddy", "Nginx", "Certbot", "Git", "Linux Server"],
+  },
 ];
 
 export const projects = [
   {
     title: "E-Book Digital Storefront with Stripe Payments",
     description:
-      "A full stack digital product store with separate customer and admin dashboards for products, orders, and payments, backed by a versioned Laravel REST API with Sanctum token auth.",
+      "A full-stack digital product store with separate customer and admin dashboards for products, orders, and payments, backed by a versioned Laravel REST API with Sanctum token auth.",
     highlights: [
-      "Integrated Stripe Checkout via Laravel Cashier and fulfilled orders from webhooks verifying payment status and stored session ID before marking payments paid and granting product access in one database transaction.",
+      "Integrated Stripe Checkout via Laravel Cashier and fulfilled orders from webhooks, verifying payment status and stored session ID before marking payments paid and granting product access in one database transaction.",
       "Calculated order totals from database prices rather than client input to prevent price tampering.",
-      "Delivered files through AWS S3 pre-signed URLs letting admins upload directly from the browser and customers download purchased files via links that expire after minutes.",
-      "Used Next.js App Router server actions with HTTP-only cookies for token storage and kept business logic in a service layer with form request validation and API resources.",
+      "Delivered files through AWS S3 pre-signed URLs, letting admins upload directly from the browser and customers download purchased files via links that expire after 10 minutes.",
+      "Deployed to a Linux server with Docker, using Nginx as the reverse proxy and Certbot for Let's Encrypt SSL certificates.",
+      "Used Next.js App Router server actions with HTTP-only cookies for token storage, and kept business logic in a service layer with form request validation and API resources.",
     ],
-    tech: ["Laravel", "Next.js", "Sanctum", "Stripe Cashier", "AWS S3", "MySQL", "React Hook Form"],
-    github: "https://github.com/nayhtetkhant/e-book-api",
+    tech: [
+      "Laravel",
+      "Next.js",
+      "Sanctum",
+      "Stripe (Cashier)",
+      "AWS S3",
+      "MySQL",
+      "React Hook Form",
+      "Docker",
+      "Nginx",
+      "Certbot",
+    ],
+    github: "https://github.com/nayhtetkhant/e-book-orchestration",
     repos: [
+      {
+        label: "e-book-orchestration",
+        url: "https://github.com/nayhtetkhant/e-book-orchestration",
+      },
       { label: "e-book-api", url: "https://github.com/nayhtetkhant/e-book-api" },
       { label: "e-book-web", url: "https://github.com/nayhtetkhant/e-book-web" },
     ],
-    demo: "",
+    demo: "https://e-book.nayhtetkhant.com",
+    adminDemo: "https://e-book.nayhtetkhant.com/admin/login",
   },
   {
     title: "ChatN — Group Chat & Video Conferencing",
@@ -75,6 +95,7 @@ export const projects = [
       { label: "chatn-web", url: "https://github.com/nayhtetkhant/chatn-web" },
     ],
     demo: "",
+    adminDemo: "",
   },
   {
     title: "Custom PHP MVC Framework",
@@ -89,6 +110,7 @@ export const projects = [
     github: "https://github.com/nayhtetkhant/mvc-poc",
     repos: [{ label: "mvc-poc", url: "https://github.com/nayhtetkhant/mvc-poc" }],
     demo: "",
+    adminDemo: "",
   },
   {
     title: "Real-Time Communication (RTC) Proof of Concept",
@@ -98,24 +120,26 @@ export const projects = [
       "Implemented Pusher Channels for WebSocket signaling, handling real-time peer discovery, channel subscriptions, and custom event dispatching.",
       "Integrated the native browser WebRTC API from scratch to manage peer connection handshakes, including SDP Offer/Answer exchange, ICE candidate gathering, and STUN server negotiation.",
     ],
-    tech: ["Next.js", "WebRTC API", "Pusher", "STUN"],
+    tech: ["Next.js", "WebRTC API", "Pusher (WebSockets)", "STUN"],
     github: "https://github.com/nayhtetkhant/rtc-poc",
     repos: [{ label: "rtc-poc", url: "https://github.com/nayhtetkhant/rtc-poc" }],
     demo: "",
+    adminDemo: "",
   },
   {
     title: "User Management System",
     description:
       "A simple user management web application featuring complete CRUD operations and user authentication.",
     highlights: [
-      "Designed the back-end with clean architecture / SOLID design pattern to separate the business logic from the database and provide a modular RESTful API using PHP.",
+      "Designed the back-end following clean architecture and SOLID principles to separate the business logic from the database to provide a modular RESTful API using PHP.",
       "Implemented raw PDO prepared statements without an ORM to master safe manual SQL querying and prevent SQL injection vulnerabilities.",
       "Designed a responsive front-end application with HTML/CSS and Alpine.js.",
     ],
-    tech: ["PHP", "MySQL", "PDO", "Alpine.js", "HTML/CSS"],
+    tech: ["PHP", "MySQL", "PDO", "Alpine.js", "JavaScript", "HTML/CSS"],
     github: "https://github.com/nayhtetkhant/user-management",
     repos: [{ label: "user-management", url: "https://github.com/nayhtetkhant/user-management" }],
     demo: "",
+    adminDemo: "",
   },
   {
     title: "Ricemill — Transaction Web App",
@@ -128,6 +152,7 @@ export const projects = [
     github: "https://github.com/nayhtetkhant/ricemill-api",
     repos: [{ label: "ricemill-api", url: "https://github.com/nayhtetkhant/ricemill-api" }],
     demo: "",
+    adminDemo: "",
   },
 ];
 
@@ -137,9 +162,18 @@ export const journey = [
     role: "Full Stack Developer — Independent Projects",
     place: "Self-directed",
     points: [
+      "Built and deployed an E-Book Digital Storefront with Next.js, Laravel, Stripe Cashier webhooks, AWS S3 pre-signed URLs, Docker, Nginx, and Certbot.",
       "Built ChatN end to end: Next.js frontend, Laravel API with Reverb, LiveKit video, Dockerized infrastructure with Caddy.",
       "Shipped ricemill-api, a Laravel app modeling real business workflows.",
       "Deep-dived real-time internals with a WebRTC proof-of-concept and a PHP MVC framework from scratch.",
+    ],
+  },
+  {
+    period: "In Progress",
+    role: "Diploma in Computer Science",
+    place: "University of the People (UoPeople)",
+    points: [
+      "Undergraduate computer science studies alongside independent full-stack and backend engineering projects.",
     ],
   },
   {
